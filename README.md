@@ -1,27 +1,29 @@
-# BsApp
+# Setup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+`git clone git@github.com:marcek/bs-app.git`
 
-## Development server
+`npm install`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+`ng serve`
 
-## Code scaffolding
+## Zadanie 1
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* uzupełnij serwis `WordService` o methodę `query()`, która zwraca tablicę 10 obiektów słów jako stream (Zwracany typ przez funkcję to `Observable<BSWord[]>`). Przykładowa tablica:
 
-## Build
+```
+[
+  { name: "Home" },  
+  { name: "Car" },  
+  { name: "Tree" },  
+  ...
+]
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* skorzystaj z serwisu `WordService` w komponencie `WordListComponent` tak aby wyświetlić listę słow uzywając w templacie `async` pipe.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Zadanie 2
+* dodaj do projektu paczkę `@angular/material`
+* rozbuduj komponent `AddWordButtonComponent`: 
+  * zamień button na button z angular material.
+  * dodaj pusty komponent `WordFormComponent` 
+  * Po kliknięciu na button otwórz dialog zawierjący `WordFormComponent`
