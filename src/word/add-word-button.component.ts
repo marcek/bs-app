@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
   selector: "bs-add-word-button",
   template: `
     <div class="bs-add-word-btn">
-      <button type="button">Add word</button>
+      
     </div>
   `
 })
