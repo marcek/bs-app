@@ -13,7 +13,8 @@ import { BSWord } from "./word.type";
         <li *ngFor="let word of words$ | async">{{ word.name }}</li>
       </ul>
     </div>
-  `
+  `,
+  imports: [ CommonModule],
 })
 export class WordListComponent implements OnInit {
   words$: Observable<BSWord[]> | undefined;
@@ -22,6 +23,6 @@ export class WordListComponent implements OnInit {
 
   ngOnInit(): void {
     this.words$ = this.wordService.data$;
-    this.wordService.query(); // Call the query method to populate data
+    
   }
 }

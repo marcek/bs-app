@@ -9,26 +9,98 @@ export class WordService {
   private _data = new BehaviorSubject<BSWord[]>([]);
   public readonly data$ = this._data.asObservable();
 
-  query(): void {
-    const sampleWords: BSWord[] = [
-      { name: "Home" },
-      { name: "Car" },
-      { name: "Tree" },
-      { name: "Computer" },
-      { name: "Book" },
-      { name: "Dog" },
-      { name: "Cat" },
-      { name: "Music" },
-      { name: "Sun" },
-      { name: "Beach" },
-      { name: "Friend" },
-      { name: "Family" },
-      { name: "Travel" },
-      { name: "Food" },
-      { name: "Movie" },
-      // ... add more words here
-    ];
+  query(whatType: string): void {
+    let words: BSWord[] = [];
 
-    this._data.next(sampleWords.slice(0, 10)); // Emit the first 10 words
+    switch (whatType) {
+      case "Animals":
+        words = [
+          { name: "Lion" },
+          { name: "Elephant" },
+          { name: "Giraffe" },
+          { name: "Tiger" },
+          { name: "Monkey" },
+          { name: "Kangaroo" },
+          { name: "Penguin" },
+          { name: "Dolphin" },
+          { name: "Koala" },
+          { name: "Zebra" },
+          { name: "Gorilla" },
+          { name: "Hippopotamus" },
+          { name: "Panda" },
+          { name: "Crocodile" },
+          { name: "Polar Bear" },
+        ];
+        break;
+      case "Plants":
+        words = [
+          { name: "Rose" },
+          { name: "Sunflower" },
+          { name: "Oak" },
+          { name: "Maple" },
+          { name: "Palm" },
+          { name: "Fern" },
+          { name: "Tulip" },
+          { name: "Cactus" },
+          { name: "Lily" },
+          { name: "Bamboo" },
+          { name: "Pine" },
+          { name: "Ivy" },
+        ];
+        break;
+      case "Countries":
+        words = [
+          { name: "USA" },
+          { name: "Canada" },
+          { name: "Australia" },
+          { name: "India" },
+          { name: "Brazil" },
+          { name: "Japan" },
+          { name: "France" },
+          { name: "China" },
+          { name: "Russia" },
+          { name: "Mexico" },
+          { name: "Germany" },
+          { name: "Italy" },
+        ];
+        break;
+      case "Colors":
+        words = [
+          { name: "Red" },
+          { name: "Blue" },
+          { name: "Green" },
+          { name: "Yellow" },
+          { name: "Orange" },
+          { name: "Purple" },
+          { name: "Pink" },
+          { name: "Brown" },
+          { name: "Black" },
+          { name: "White" },
+          { name: "Gray" },
+        ];
+        break;
+      case "Cities":
+        words = [
+          { name: "New York" },
+          { name: "Paris" },
+          { name: "Tokyo" },
+          { name: "London" },
+          { name: "Beijing" },
+          { name: "Sydney" },
+          { name: "Rio de Janeiro" },
+          { name: "Cairo" },
+          { name: "Moscow" },
+          { name: "Mexico City" },
+          { name: "Berlin" },
+          { name: "Rome" },
+        ];
+        break;
+      default:
+        words = [];
+        break;
+    }
+
+    this._data.next(words);
   }
 }
+
