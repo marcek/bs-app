@@ -29,4 +29,6 @@ export class AppComponent {
       width: '400px'
     });
   }
+
+  onWordAdded(event: string) {}
 }
