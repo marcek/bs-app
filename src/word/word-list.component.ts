@@ -11,6 +11,7 @@ import { BSWord } from "./word.type";
     <div class="bs-word-list">
       <ul>
         <li *ngFor="let word of words$ | async">{{ word.name }}</li>
+        
       </ul>
     </div>
   `,
@@ -22,7 +23,7 @@ export class WordListComponent implements OnInit {
   constructor(private wordService: WordService) {}
 
   ngOnInit(): void {
-    this.words$ = this.wordService.data$;
+    this.words$ = this.wordService.query();
     
   }
 }

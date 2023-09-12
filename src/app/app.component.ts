@@ -13,22 +13,16 @@ import { WordFormComponent } from "./word-form/word-form.component";
   selector: "bs-app",
   template: `
     <div class="bs-app">
-      <bs-add-word-button></bs-add-word-button>
       <bs-word-list></bs-word-list>
-      <button mat-raised-button color="primary" (click)="openWordFormDialog()">Otwórz formularz</button>
+      <bs-add-word-button></bs-add-word-button>
+      
     </div>
   `
 })
 export class AppComponent {
 
   
-  constructor(private dialog: MatDialog) {}
-  openWordFormDialog(): void {
+  
 
-    this.dialog.open(WordFormComponent, {
-      width: '400px'
-    });
-  }
-
-  onWordAdded(event: string) {}
+ 
 }
