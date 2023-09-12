@@ -26,5 +26,15 @@ export class WordService {
 
   query(): BehaviorSubject<BSWord[]> {
     return this._data
-  }    
+  }   
+  
+  addWord(word: string): void {
+    console.log(word);
+    const currentData = this._data.value;
+    const newWord: BSWord = { name: word }; // Convert the string to a BSWord object
+    currentData.push(newWord);
+    this._data.next(currentData);
+    console.log(this._data);
+  }
+ 
 }

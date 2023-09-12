@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { WordFormComponent } from "src/app/word-form/word-form.component";
 import { MatButtonModule } from "@angular/material/button";
+import { BSWord } from "./word.type";
 
 @Component({
   standalone: true,
@@ -14,6 +15,8 @@ import { MatButtonModule } from "@angular/material/button";
   
 })
 export class AddWordButtonComponent {
+  @Output() wordAdded = new EventEmitter<string>();
+  wordFromDialog: string | null = null
  
   constructor(private dialog: MatDialog) {}
 
@@ -21,9 +24,13 @@ export class AddWordButtonComponent {
 
   openWordFormDialog(): void {
 
-    this.dialog.open(WordFormComponent, {
+    const dialRef = this.dialog.open(WordFormComponent, {
       width: '400px'
-    });
+    })
+
+    dialRef.afterClosed().subscribe((result: string) => {
+      this.wordAdded.emit(result)
+    })
   }
 
   

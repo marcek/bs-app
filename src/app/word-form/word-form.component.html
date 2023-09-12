@@ -1,1 +1,6 @@
-<p>word-form works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Wprowadź słowo" formControlName="word">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Dodaj</button>
+  </form>
