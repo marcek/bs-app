@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { WordService } from "./word.service";
 import { Observable } from "rxjs";
 import { BSWord } from "./word.type";
+import { FormControl  } from "@angular/forms";
 
 @Component({
   standalone: true,
@@ -19,6 +20,7 @@ import { BSWord } from "./word.type";
 })
 export class WordListComponent implements OnInit {
   words$: Observable<BSWord[]> | undefined;
+  phrase = new FormControl("");
 
   constructor(private wordService: WordService) {}
 

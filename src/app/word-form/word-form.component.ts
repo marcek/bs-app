@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, FormBuilder, Validators} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class WordFormComponent {
   form = new FormGroup({
-    word: new FormControl('')
+    word: new FormControl("", [Validators.minLength(3)])
   });
 
   // @Output() wordAdded = new EventEmitter<string | null>(); // żeby użyć word w parencie używam EventEmitter, ale nie wiem czy to najlepsza opcja. Druga opcja jaką widzę to utworzyć

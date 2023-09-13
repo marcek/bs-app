@@ -50,3 +50,27 @@
 ## Zadanie 8
   * wyemitowanie eventu `wordAdded` z komponentu `AddWordButtonComponent` ma wywołać metodę `onWordAdded` zdefiniowaną w `AppComponent`.
   * metoda `wordAdded` dodaje nowe słowo, które ma pojawić się na liście generowanej przez komponent `WordList`.
+
+## Zadanie 9
+  * Aktualnie mozliwe jest zapisanie pustego słowa. Dodałem do kontrolki formularza `word` walidator, ktory wymaga by słowo miało przynamniej 3 znaki oraz prosty paragraf w templacie z treścią błędu. Zakutalizuj metodę `onSubmit` w `WordFormComponent` tak aby metoda `addWord` została wywołana tylko w przypadku gdy formularz jest poprawnie wypełniony/zwalidowany oraz pokaz treść błędu w przeciwnym wypadku. Skorzystaj z `form.valid` oraz `form.get("word").errors` .
+
+## Zadanie 10
+  * Dodaj przy kazdym slowie w `WordListComponent` button "Edit". Po kliknięciu otwórz ponownie dialog, ale tym razem z formularzem edycji.
+  Pole tekstowe powinno pokazywać edytowane słowo a kliknięcie buttonu "Save" zaktualizować słowo w serwisie `wordService`. Walidacja powinna działać tak samo jak w przypadku formularza dodawania nowego słowa.
+
+## Zadanie 11
+  * Dodaj przy kazdym słowie w `WordListComponent` button "Remove", który usunie słowo z serwisu `wordService`.
+
+## Zadanie 12
+  * Dodaj pole tekstowe do komponentu `WordListComponent` oraz połącz je (dyrektywa `formControl`) z dodaną przeze mnie kontrolką `phrase`.
+  Pole ma za zadanie filtrować listę słów. Gdy jest puste to wszystkie słowa powinny być widoczne. Wpisywanie znaków do pola ogranicza listę słów.
+  Skorzystaj z właściwości `valueChanges` dla `phrase` i zaimplementuj fitrowanie słów za pomocą jednego streama:
+
+  ```
+    ngOnInit() {
+      this.words$ = this.phrase.valueChanges
+        .pipe(
+          ...
+        )
+    }
+  ```
