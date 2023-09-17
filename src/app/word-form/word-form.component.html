@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <input matInput placeholder="Wprowadź słowo" formControlName="word">
-    </mat-form-field>
-    <p class="form-error">Minimum 3 characters required</p>
-    <button mat-raised-button color="primary" type="submit">Dodaj</button>
-  </form>
+  <mat-form-field>
+    <input matInput [placeholder]="data.wordToEdit ? 'Edytuj słowo' : 'Wprowadź słowo'" formControlName="word">
+  </mat-form-field>
+  <p class="form-error">Minimum 3 characters required</p>
+  <button mat-raised-button color="primary" type="submit">Dodaj</button>
+</form>

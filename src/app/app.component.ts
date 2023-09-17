@@ -26,7 +26,7 @@ export class AppComponent {
   constructor(private wordService: WordService) {}
   
   handleWordAdded(word: string): void {
-    console.log(word)
+    
     
     this.wordService.addWord(word)
 

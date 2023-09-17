@@ -36,5 +36,23 @@ export class WordService {
     this._data.next(currentData);
     console.log(this._data);
   }
+
+  removeWord(index: number): void {
+    const currentData = this._data.value;
+
+    if (index >= 0 && index < currentData.length) {
+      currentData.splice(index, 1);
+      this._data.next(currentData);
+    }
+  }
+
+  editWord(index: number, newWord: string): void {
+    const currentData = this._data.value;
+
+    if (index >= 0 && index < currentData.length) {
+      currentData[index].name = newWord;
+      this._data.next(currentData);
+    }
+  }
  
 }

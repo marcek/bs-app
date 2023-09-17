@@ -11,7 +11,7 @@ import { BSWord } from "./word.type";
   template: `
     <button mat-raised-button color="primary" (click)="openWordFormDialog()">Otwórz formularz</button>
   `,
-  styleUrls: ["./add-word-button.component.css"]
+  
   
 })
 export class AddWordButtonComponent {
